@@ -1,0 +1,37 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div style="width:80%;margin:auto;background-color:darkturquoise;padding:10px;border-radius:10px">
+
+    @if (@ViewBag.TageSeitGeb != null)   {               
+            <p>Aha! @ViewBag.Vorname, Sie sind also @ViewBag.TageSeitGeb Tage alt.</p> 
+    }
+    else if (@ViewBag.TageSeitGeb == null)
+    {
+        <form action="/home/index" method="post">
+            <h1>Day-Calc</h1>
+            <input type="text" name="inpVorname" placeholder="Vorname" required pattern="[a-zA-Z]+" /> <!-- "placeholder" zeigt in grauer Farbe an, was verlangt ist, i.d.F. "Vorname" -->
+            <label id="lblVorname">Vorname</label>
+            <br />
+            <input type="date" name="inpGeburtstag" value="1970-01-01" />
+            <label id="lblGeburtsdatum">Geburtsdatum</label>
+            <br />
+            <button id="btnSenden" type="submit">Senden</button>
+            <button id="btnReset" type="reset">Reset</button>
+            <br /><br />
+        </form>
+    }
+    </div>
+
+</body>
+</html>
