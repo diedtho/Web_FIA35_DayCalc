@@ -15,11 +15,12 @@ namespace Web_FIA35_DayCalc.Controllers
         }
 
         [HttpPost]
-        public IActionResult Index(string inpVorname, DateTime inpGeburtstag)
+        public IActionResult Index(string inpVorname, string inpNachname, DateTime inpGeburtstag)
         {
             ViewBag.Vorname = inpVorname;
-            ViewBag.TageSeitGeb = (DateTime.Now - inpGeburtstag).Days;            
-
+            ViewBag.Nachname = inpNachname;
+            ViewBag.TageSeitGeb = (DateTime.Now - inpGeburtstag).Days;
+            
             return View();
         }
 

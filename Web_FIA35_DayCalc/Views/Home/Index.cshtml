@@ -11,25 +11,30 @@
     <title>Index</title>
 </head>
 <body>
-    <div style="width:80%;margin:auto;background-color:darkturquoise;padding:10px;border-radius:10px">
+    <div style="width:80%;margin:auto;background-color:darkturquoise;padding:10px;border-radius:10px"> <!-- Style des gesamten Bodies -->
 
     @if (@ViewBag.TageSeitGeb != null)   {               
-            <p>Aha! @ViewBag.Vorname, Sie sind also @ViewBag.TageSeitGeb Tage alt.</p> 
+            <p>Aha! @ViewBag.Vorname @ViewBag.Nachname, Sie sind also @ViewBag.TageSeitGeb Tage alt.</p>
+            <a href="/home/Index"><strong>Zur Eingabe</strong></a>
     }
     else if (@ViewBag.TageSeitGeb == null)
     {
-        <form action="/home/index" method="post">
-            <h1>Day-Calc</h1>
-            <input type="text" name="inpVorname" placeholder="Vorname" required pattern="[a-zA-Z]+" /> <!-- "placeholder" zeigt in grauer Farbe an, was verlangt ist, i.d.F. "Vorname" -->
-            <label id="lblVorname">Vorname</label>
-            <br />
-            <input type="date" name="inpGeburtstag" value="1970-01-01" />
-            <label id="lblGeburtsdatum">Geburtsdatum</label>
-            <br />
-            <button id="btnSenden" type="submit">Senden</button>
-            <button id="btnReset" type="reset">Reset</button>
-            <br /><br />
-        </form>
+    <form action="/home/index" method="post" autocomplete="off">
+        <!-- autocomplete für gesamtes Formular ausschalten, für ein einzelnes Element einschalten (siehe unten!) -->
+        <h1>Day-Calc</h1>
+        <input type="text" name="inpVorname" placeholder="Vorname" pattern="[a-zA-Z]+" /> <!-- "placeholder" zeigt in grauer Farbe an, was verlangt ist, i.d.F. "Vorname" -->
+        <label id="lblVorname">Vorname</label>
+        <br />
+        <input type="text" name="inpNachname" placeholder="Nachname" autocomplete="on" pattern="[a-zA-Z]+" /> <!-- "placeholder" zeigt in grauer Farbe an, was verlangt ist, i.d.F. "Nachname" -->
+        <label id="lblNachname">Nachname</label>
+        <br />
+        <input type="date" name="inpGeburtstag" required value="1970-01-01" max="2021-09-24"/>  <!-- Value, sowie max und min müssen im amerikanischen DateTime-Format angegeben werden. Konvertierung erfolgt auf das Format, das als Locale eingestellt ist. -->
+        <label id="lblGeburtsdatum">Geburtsdatum</label>
+        <br />
+        <button id="btnSenden" type="submit">Senden</button>
+        <button id="btnReset" type="reset">Reset</button>
+        <br /><br />
+    </form>
     }
     </div>
 
