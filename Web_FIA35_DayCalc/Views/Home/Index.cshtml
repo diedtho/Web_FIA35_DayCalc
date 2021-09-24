@@ -22,13 +22,17 @@
     <form action="/home/index" method="post" autocomplete="off">
         <!-- autocomplete für gesamtes Formular ausschalten, für ein einzelnes Element einschalten (siehe unten!) -->
         <h1>Day-Calc</h1>
-        <input type="text" name="inpVorname" placeholder="Vorname" pattern="[a-zA-Z]+" /> <!-- "placeholder" zeigt in grauer Farbe an, was verlangt ist, i.d.F. "Vorname" -->
+        <input type="text" name="inpVorname" id="inpVorname" placeholder="Vorname" pattern="[a-zA-Z]+" /> <!-- "placeholder" zeigt in grauer Farbe an, was verlangt ist, i.d.F. "Vorname" -->
         <label id="lblVorname">Vorname</label>
         <br />
-        <input type="text" name="inpNachname" placeholder="Nachname" autocomplete="on" pattern="[a-zA-Z]+" /> <!-- "placeholder" zeigt in grauer Farbe an, was verlangt ist, i.d.F. "Nachname" -->
+        <input type="text" name="inpNachname" id="inpVorname" placeholder="Nachname" autocomplete="on" pattern="[a-zA-Z]+" /> <!-- "placeholder" zeigt in grauer Farbe an, was verlangt ist, i.d.F. "Nachname" -->
         <label id="lblNachname">Nachname</label>
         <br />
-        <input type="date" name="inpGeburtstag" required value="1970-01-01" max="2021-09-24"/>  <!-- Value, sowie max und min müssen im amerikanischen DateTime-Format angegeben werden. Konvertierung erfolgt auf das Format, das als Locale eingestellt ist. -->
+        <input type="date" name="inpGeburtstag" id="inpVorname" required value="1970-01-01" max="2021-09-24"/>  <!-- Value, sowie max und min müssen im amerikanischen
+                                                                                                    DateTime-Format angegeben werden. Konvertierung erfolgt auf das Format,
+                                                                                                    das als Locale eingestellt ist.
+                                                                                                    Einstellung von max auf das aktuelle Datum:
+                                                                                                    max="@DateTime.Now.ToString("yyyy-MM-dd")" -->
         <label id="lblGeburtsdatum">Geburtsdatum</label>
         <br />
         <button id="btnSenden" type="submit">Senden</button>
